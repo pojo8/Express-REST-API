@@ -2,8 +2,8 @@ const mongoose = require('mongoose');
 
 const UserSessionSchema = new mongoose.Schema({
     userId: {
-        type: Number,
-        default: -1
+        type: String,
+        default: ''
     },
     timestamp: {
         type: Date,
@@ -13,6 +13,9 @@ const UserSessionSchema = new mongoose.Schema({
         type: Boolean,
         default: false
     }
+},
+    {
+        collection: 'userSessions'
 });
 
 module.exports = mongoose.model('UserSession', UserSessionSchema);
