@@ -25,9 +25,12 @@ app.use(bodyParser.urlencoded({
 }));
 app.use(cors());
 
-// Api root
-const userRoute = require('./routes/contractor.route')
-app.use('/endpoint', userRoute)
+//User Api roots
+const contractorRoute = require('./routes/contractor.route')
+const loginRoute = require('./routes/login.route')
+
+app.use('/endpoint', [contractorRoute, loginRoute])
+
 
 // Create port
 const port = process.env.PORT || 8080;
